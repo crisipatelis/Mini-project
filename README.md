@@ -8,7 +8,7 @@ A number of tools must be installed to run this project. The packages and their 
 
 2. SPAdes, which can be found here: https://cab.spbu.ru/software/spades/.
 
-3. BioPython, which can be found here: https://www.tutorialspoint.com/biopython/biopython_installation.htm.
+3. BioPython*, which can be found here: https://www.tutorialspoint.com/biopython/biopython_installation.htm.
       *Note: in the development of this project, an older version of pip was used to accomodate Python 3.5 on virtual machines. 
 
 4. GeneMarkS-2, which can be found here: http://topaz.gatech.edu/Genemark/license_download.cgi.
