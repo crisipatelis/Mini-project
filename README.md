@@ -27,6 +27,7 @@ The script runs under the assumption that packages are installed to the user's h
 In its development and in order to run it, this project used two sets of test data. The script is designed to retrieve these reads. 
 - In the first portion of the project (#1-7), Illumina sequence reads with SRA ID SRR8185310 are used for resequencing the E. coli K-12 genome. In step 1 of the script, the ```sra_id``` variable is assigned to this SRA ID. Its SRA Database page can be found here: https://www.ncbi.nlm.nih.gov/sra/SRX5005282
 - In the second portion of the project (#8-9), Illumina RNA sequences with SRA ID SRR1411276 are used as transcriptome data. In step 8 of the script, the ```sra_id2``` variable is assigned to this SRA ID. Its SRA Database page can be found here: https://www.ncbi.nlm.nih.gov/sra/SRX604287
+- In step 6, a given multi-fasta file was used to create an E. coli K-12 database as subject sequences. It was obtained at /home/aene/Ecoli.fasta. 
 
 
 **```import``` Information**
