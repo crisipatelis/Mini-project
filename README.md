@@ -29,7 +29,7 @@ In its development and in order to run it, this project used two sets of test da
 - In the second portion of the project (#8-9), Illumina RNA sequences with SRA ID SRR1411276 are used as transcriptome data. In step 8 of the script, the ```sra_id2``` variable is assigned to this SRA ID. Its SRA Database page can be found here: https://www.ncbi.nlm.nih.gov/sra/SRX604287
 - In step 6, a given multi-fasta file was used to create an E. coli K-12 database as subject sequences. It was obtained at /home/aene/Ecoli.fasta. This sample data file is available in this repository. 
 - SRA fastq's are not included as attachments in this repository due to large file size. 
-- An example miniproject.log file output is included in this repository
+- An example miniproject.log file output is included in this repository.
 
 
 **```import``` Information**
