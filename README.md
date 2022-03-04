@@ -47,7 +47,7 @@ At the top of the script, several packages are imported for use. They are explai
 ------------------------------------------
 #1.
 
-```admin = os.getcwd()``` : this is a variable used many times throughout the script to begin pathways. Have the script in the user's home directory so that the os call will get that home directory.  
+```admin = os.getcwd()``` : this is a variable used many times throughout the script to begin paths. Have the script in the user's home directory so that the os call will get that current directory.  
 
 ```sra_id``` : test data information described in **Test Data** section above. 
 
