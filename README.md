@@ -30,6 +30,7 @@ In its development and in order to run it, this project used two sets of test da
 - In step 6, a given multi-fasta file was used to create an E. coli K-12 database as subject sequences. It was obtained at /home/aene/Ecoli.fasta. This sample data file is available in this repository. 
 - SRA fastq's are not included as attachments in this repository due to large file size. 
 - An example miniproject.log file output is included in this repository.
+- An example of the script's last file output, transcriptome_data.fpkm, is included in this repository. 
 
 
 **```import``` Information**
