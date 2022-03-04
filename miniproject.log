@@ -1,0 +1,10 @@
+python3 /home/cpatelis/SPAdes-3.15.4-Linux/bin/spades.py -k 55, 77, 99, 127 -t 2 --only-assembler -s SRR8185310.fastq -o /home/cpatelis/results/SRR8185310_assembly/
+There are 150 contigs > 1000 in the assembly.
+There are 4535677 bp in the assembly.
+perl /home/cpatelis/gms2_linux_64/gms2.pl --SEQ /home/cpatelis/results/1000_contigs.fasta --genome-type bacteria --output /home/cpatelis/results/gms2_OUT --faa /home/cpatelis/results/predicted_genes
+makeblastdb -in /home/cpatelis/Ecoli.fasta -out Ecoli -title Ecoli -dbtype prot
+blastp -out /home/cpatelis/results/predicted_functionalities.csv -outfmt "10 qseqid sseqid pident qcovs" -query /home/cpatelis/results/1000_contigs.fasta -db Ecoli -max_target_seqs 1
+GeneMarkS found 124 additional CDS than the RefSeq.
+bowtie-build /home/cpatelis/results/SRR8185310_assembly/contigs.fasta EcoliK12
+/home/cpatelis/tophat-2.1.1.Linux_x86_64/tophat2 -o tophat_out --no-novel-juncs EcoliK12 SRR1411276.fastq
+/home/cpatelis/cufflinks-2.2.1.Linux_x86_64/cufflinks -o /home/cpatelis/results/cufflinks_out /home/cpatelis/tophat_out/accepted_hits.bam
