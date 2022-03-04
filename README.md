@@ -57,8 +57,8 @@ At the top of the script, several packages are imported for use. They are explai
 - ```-k 55, 77, 99, 127``` : Run SPAdes for _de novo_ assembly.
 - ```-t 2``` : use two processors.
 - ```--only-assembler``` : only do the assembly.
-- ```-s SRR8185310.fastq```: one input file, just the sra_id.fastq file (for single end reads).
-- ```-o " +admin+"/results/SRR8185310_assembly```: 
+- ```-s " + sra_id + ".fastq```: one input file, just the sra_id.fastq file (for single end reads).
+- ```-o " +admin+"/results/SRR8185310_assembly/```: the directory the spades command will output. 
 
 #5. 
 
