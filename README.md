@@ -20,7 +20,7 @@ A number of tools must be installed to run this project. The packages and their 
 
 5. TopHat and Cufflinks, both of which can be found here: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/.
 
-The script runs under the assumption that packages are installed to the user's home directory. Otherwise, paths must be specified. Additionally, if packages are downloaded under different operating systems (other than Ubuntu appropriate versions), The paths to access each packages programs must be specified. For example, to run SPAdes, the user's home directory is accessed at ```admin``` and the spades.py program is accessed at ```/SPAdes-3.15.4-Linux/bin/spades.py```. If using a version of SPAdes other than "SPAdes-3.15.4-Linux", this must be modified.  
+The script runs under the assumption that packages are installed to the user's home directory. Otherwise, paths must be specified. Additionally, if packages are downloaded under different operating systems (other than Ubuntu appropriate versions), The paths to access each packages' programs must be specified. For example, to run SPAdes, the user's home directory is accessed at ```admin``` and the spades.py program is accessed at ```/SPAdes-3.15.4-Linux/bin/spades.py```. If using a version of SPAdes other than "SPAdes-3.15.4-Linux", this must be modified.  
 
 **Test Data**
 -------------
