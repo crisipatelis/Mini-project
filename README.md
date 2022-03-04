@@ -1,6 +1,6 @@
 # Mini-project
 
-This project was developed for COMP 483.
+This project was developed for COMP 483. It was created using an Ubuntu Virtual Machine. 
 
 
 **Packages and Prerequisites**
@@ -20,6 +20,7 @@ A number of tools must be installed to run this project. The packages and their 
 
 5. TopHat and Cufflinks, both of which can be found here: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3334321/.
 
+The script runs under the assumption that packages are installed to the user's home directory. Otherwise, paths must be specified. 
 
 **Test Data**
 -------------
@@ -42,5 +43,48 @@ At the top of the script, several packages are imported for use. They are explai
 
 ```from Bio.Blast.Applications import NcbiblastpCommandline``` : Biopython's interface to run blastp from command line.
 
-**Parameter and Step Information**
-----------------------------------
+**Parameter and Important Step Information**
+------------------------------------------
+#1.
+
+```admin = os.getcwd()``` : this is a variable used many times throughout the script to begin pathways. Have the script in the user's home directory so that the os call will get that home directory.  
+
+```sra_id``` : test data information described in **Test Data** section above. 
+
+#2. 
+
+```spades_command```:
+- ```-k 55, 77, 99, 127``` : Run SPAdes for _de novo_ assembly.
+- ```-t 2``` : use two processors.
+- ```--only-assembler``` : only do the assembly.
+- ```-s SRR8185310.fastq```: one input file, just the sra_id.fastq file (for single end reads).
+- ```-o " +admin+"/results/SRR8185310_assembly```: 
+
+#5. 
+
+```protein_seqs```:
+- ```--SEQ " + admin + "/results/1000_contigs.fasta```: genome sequences for contigs > 1000 as input.
+- ```--genome-type bacteria```: is a bacterial genome.
+- ```--output " + admin + "/results/gms2_OUT```: path to output the output file.
+- ```--faa " + admin + "/results/predicted_genes"```: path to output the file that will contain predicted gene sequences.
+
+#6. 
+
+```make_db_command```: 
+- ```makeblastdb```: invoke makeblastdb program.
+- ```-in " + admin + "/Ecoli.fasta```: database input path and file.
+- ```-out Ecoli```: database output name (outputs to home directory).
+- ```-title Ecoli```: Ecoli is the title of this database.
+- ```-dbtype prot```: protein database type.
+
+```blastp_cline```: 
+- ```query=admin+"/results/1000_contigs.fasta"```: the query sequence to enter into blastp.
+- ```db="Ecoli"```: name of database. 
+- ```max_target_seqs=1```: includes only the best hits.
+- ```outfmt='"10 qseqid sseqid pident qcovs"'```: format of the output file (query sequence id, subject sequence id, percent identity, percent query coverage).
+- ```out=admin+'/results/predicted_functionalities.csv'```: path to the output file (outputs in results directory).
+
+```stout, stderr```: runs ```blastp_cline``` command
+
+ 
+ For more information on parameter options for each step/package, search the documentation at the links provided in the **Packages and Prerequisites** section.
