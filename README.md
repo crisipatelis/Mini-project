@@ -111,6 +111,6 @@ At the top of the script, several packages are imported for use. They are explai
 **Results**
 -----------
 
-After running the script (with the test data), the following files can be found in the results directory:
+After running the script (with the test data), the following files/directories can be found in the results directory:
 
 ```1000_contigs.fasta``` ```cufflinks_out``` ```gms2_OUT``` ```predicted_functionalities.csv``` ```predicted_genes``` ```SRR8185310_assembly``` ```transcriptome_data.fpkm``` ```miniproject.log```
