@@ -1,6 +1,6 @@
 # Mini-project
 
-This project was developed for COMP 483. It was created using an Ubuntu Virtual Machine. 
+This project was developed for COMP 483. It was created using a Virtual Machine with an Ubuntu OS.  
 
 
 **Packages and Prerequisites**
