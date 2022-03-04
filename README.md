@@ -24,7 +24,7 @@ The script runs under the assumption that packages are installed to the user's h
 
 **Test Data**
 -------------
-In its development and in order to run it, this project used two sets of test data. 
+In its development and in order to run it, this project used two sets of test data. The script is designed to retrieve these reads. 
 - In the first portion of the project (#1-7), Illumina sequence reads with SRA ID SRR8185310 are used for resequencing the E. coli K-12 genome. In step 1 of the script, the ```sra_id``` variable is assigned to this SRA ID. Its SRA Database page can be found here: https://www.ncbi.nlm.nih.gov/sra/SRX5005282
 - In the second portion of the project (#8-9), Illumina RNA sequences with SRA ID SRR1411276 are used as transcriptome data. In step 8 of the script, the ```sra_id2``` variable is assigned to this SRA ID. Its SRA Database page can be found here: https://www.ncbi.nlm.nih.gov/sra/SRX604287
 
@@ -84,7 +84,32 @@ At the top of the script, several packages are imported for use. They are explai
 - ```outfmt='"10 qseqid sseqid pident qcovs"'```: format of the output file (query sequence id, subject sequence id, percent identity, percent query coverage).
 - ```out=admin+'/results/predicted_functionalities.csv'```: path to the output file (outputs in results directory).
 
-```stout, stderr```: runs ```blastp_cline``` command
+```stout, stderr```: runs ```blastp_cline``` command while outputting errors (if reference to them is needed).
 
- 
+#8. 
+
+```build_bowtie_command```:
+- ```bowtie-build```: invokes the bowtie-build program.
+- ```admin+"/results/" + sra_id + "_assembly/contigs.fasta```: input file to build bowtie index.
+- ```EcoliK12```: name of the index.
+
+```tophat_command```: 
+- ```admin+"/tophat-2.1.1.Linux_x86_64/tophat2```: invokes tophat2 program.
+- ```-o tophat_out```: name and location of tophat output (outputs to home directory).
+- ```--no-novel-juncs```: does not include novel splice site discovery.
+- ```EcoliK12```: bowtie index.
+- ```sra_id2 + ".fastq"```: transcriptome fastq file.
+
+```cufflinks_command```:
+- ```admin+"/cufflinks-2.2.1.Linux_x86_64/cufflinks```: invoke cufflinks program
+- ```-o "+admin+"/results/cufflinks_out "```: name and location of cufflinks output (outputs to results directory)
+- ```+ admin +"/tophat_out/accepted_hits.bam"```: bam file from tophat output
+
  For more information on parameter options for each step/package, search the documentation at the links provided in the **Packages and Prerequisites** section.
+
+**Results**
+-----------
+
+After running the script (with the test data), the following files can be found in the results directory:
+
+```1000_contigs.fasta``` ```cufflinks_out``` ```gms2_OUT``` ```predicted_functionalities.csv``` ```predicted_genes``` ```SRR8185310_assembly``` ```transcriptome_data.fpkm``` ```miniproject.log```
